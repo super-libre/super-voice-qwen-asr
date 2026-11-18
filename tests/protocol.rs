@@ -179,8 +179,7 @@ fn request(socket: &Path, method: &str, path: &str, body: Option<&str>) -> (u16,
         .expect("a status line");
     let body = response
         .split_once("\r\n\r\n")
-        .map(|(_, b)| b.to_string())
-        .unwrap_or_default();
+        .map_or_default(|(_, b)| b.to_string());
     (status, body)
 }
 

@@ -24,12 +24,11 @@ use axum::http::HeaderMap;
 
 /// The most tokens of context a transcription is prompted with.
 ///
-/// The context is prefilled on every request, and the daemon sends a request
-/// for each preview of a dictation in progress, so every token here costs as
-/// much as a token of audio, about every second. 512 tokens is about forty
-/// seconds of audio's worth: invisible on a GPU, and a bound on what a long
-/// context adds on a CPU. It holds a paragraph of prompt and a hundred or more
-/// terms; the daemon's own limits allow about four times that.
+/// The context is prefilled on every request, so every token here costs as
+/// much as a token of audio. 512 tokens is about forty seconds of audio's
+/// worth: invisible on a GPU, and a bound on what a long context adds on a
+/// CPU. It holds a paragraph of prompt and a hundred or more terms; the
+/// daemon's own limits allow about four times that.
 pub const MAX_TOKENS: usize = 512;
 
 /// The prompt's header, then its Super STT spelling.

@@ -25,7 +25,7 @@
     # one as its own.
     product = "super-stt"
     license = "GPL-3.0-only"
-    description = "Local Qwen3-ASR speech-to-text with streamed previews."
+    description = "Local Qwen3-ASR speech-to-text."
 
 [network]
     # Required to be empty for subprocess backends; the transport has no network.
